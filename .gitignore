@@ -1,3 +1,6 @@
 
 /target
 **/*.rs.bk
+
+# OS X
+.DS_Store
