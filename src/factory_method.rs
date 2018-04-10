@@ -9,9 +9,9 @@
 //! - `Car`: the product to create in the "factory". It defines the interface for objects created in said "factory".
 //! - `Sedan`: the concrete product that implements the interface of the general product above.
 //! - `Factory`: the creator (factory) which declares the factory method, which returns an object of type `Car`. This
-//!    this can also define a default `Car` object if this is necessary/appropriate.
+//!   this can also define a default `Car` object if this is necessary/appropriate.
 //! - `SedanFactory`: the class overriding the factory method from the abstract creator to return a specific instance
-//!    of a concrete product (`Sedan`).
+//!   of a concrete product (`Sedan`).
 //!
 //! # Modifications and Strategies
 //! The creator can take an additional parameter specifying which product to create. All the concrete creators must then
@@ -19,6 +19,13 @@
 //!
 //! # Known Uses
 //! - Junit Test
+//!
+//! # Comments
+//! Note that using traits, the same result can be achieved by making sure all cars implement a `make_car` static method
+//! that returns a car of the type given by the class implementing the trait. This results in a factory method shared
+//! by all cars to build `Car` objects. Of course, this reduces the information hiding about the type of the `Car`
+//! created as usually a class would returns its own type (but note it still has the flexibility to return another
+//! type of `Car`).
 
 /// A trait defining the behaviour of a car.
 pub trait Car {
