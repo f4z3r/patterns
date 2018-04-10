@@ -28,7 +28,7 @@
 //! type of `Car`).
 
 /// A trait defining the behaviour of a car.
-pub trait Car {
+trait Car {
     /// Get the type of a car.
     ///
     /// # Returns
@@ -37,7 +37,7 @@ pub trait Car {
 }
 
 /// A trait defining the behaviour of a CarFactory. This is the factory.
-pub trait CarFactory {
+trait CarFactory {
     /// Make a car. This is the factory method
     ///
     /// # Returns
@@ -46,7 +46,7 @@ pub trait CarFactory {
 }
 
 /// A car of type sedan.
-pub struct Sedan;
+struct Sedan;
 
 impl Car for Sedan {
     fn get_type(&self) -> &'static str {
@@ -55,7 +55,7 @@ impl Car for Sedan {
 }
 
 /// A factory building sedans.
-pub struct SedanFactory;
+struct SedanFactory;
 
 impl CarFactory for SedanFactory {
     fn make_car(&self) -> Box<Car> {

@@ -35,7 +35,7 @@
 //! Creation of UI controls.
 
 /// A trait defining a button.
-pub trait Button {
+trait Button {
     /// Returns the label on the button.
     ///
     /// # Returns
@@ -45,7 +45,7 @@ pub trait Button {
 
 
 /// A generic window trait.
-pub trait Window {
+trait Window {
     /// Returns the size of the window.
     ///
     /// # Returns
@@ -54,7 +54,7 @@ pub trait Window {
 }
 
 /// A trait defining an abstract factory.
-pub trait Factory {
+trait Factory {
     /// Creates a button.
     ///
     /// # Returns
@@ -69,9 +69,9 @@ pub trait Factory {
 }
 
 /// A linux button.
-pub struct LinuxButton;
+struct LinuxButton;
 /// A linux window
-pub struct LinuxWindow;
+struct LinuxWindow;
 
 impl Button for LinuxButton {
     fn paint(&self) -> &str {
@@ -86,9 +86,9 @@ impl Window for LinuxWindow {
 }
 
 /// A OSX button.
-pub struct OSXButton;
+struct OSXButton;
 /// A OSX window.
-pub struct OSXWindow;
+struct OSXWindow;
 
 impl Button for OSXButton {
     fn paint(&self) -> &str {
@@ -103,9 +103,9 @@ impl Window for OSXWindow {
 }
 
 /// A linux system.
-pub struct Linux;
+struct Linux;
 /// A OSX system.
-pub struct OSX;
+struct OSX;
 
 impl Factory for Linux {
     fn create_button(&self) -> Box<Button> {
