@@ -5,6 +5,8 @@
 
 mod factory_method;
 mod abstract_factory;
+mod prototype;
+mod singleton;
 
 fn main() {
 }
