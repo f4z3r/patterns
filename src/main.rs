@@ -8,6 +8,7 @@ pub mod abstract_factory;
 pub mod prototype;
 pub mod singleton;
 pub mod composite;
+pub mod decorator;
 
 fn main() {
 }
