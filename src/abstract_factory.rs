@@ -133,8 +133,8 @@ impl Factory for OSX {
 /// of performance, this is prefered, as no dynamic lookup is required on method calls on the objects created by the
 /// abstract factory.
 trait Factory2 {
-    type ButtonType;
-    type WindowType;
+    type ButtonType: Button;
+    type WindowType: Window;
 
     fn create_button(&self) -> Self::ButtonType;
     fn create_window(&self) -> Self::WindowType;

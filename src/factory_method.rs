@@ -68,7 +68,7 @@ impl CarFactory for SedanFactory {
 /// of performance, this is prefered, as no dynamic lookup is required on method calls on the objects created by the
 /// factory method.
 trait CarFactory2 {
-    type CarType;
+    type CarType: Car;
 
     fn make_car(&self) -> Self::CarType;
 }
