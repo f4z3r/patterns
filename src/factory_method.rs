@@ -63,6 +63,26 @@ impl CarFactory for SedanFactory {
     }
 }
 
+/// Note that this can also be implemented with advanced traits using types. In general this is much cleaner, but
+/// exposes the real type of the object to the client. This might however, not be a problem in some scenarios. In terms
+/// of performance, this is prefered, as no dynamic lookup is required on method calls on the objects created by the
+/// factory method.
+trait CarFactory2 {
+    type CarType;
+
+    fn make_car(&self) -> Self::CarType;
+}
+
+struct BetterSedanFactory;
+
+impl CarFactory2 for BetterSedanFactory {
+    type CarType = Sedan;
+
+    fn make_car(&self) -> Sedan {
+        Sedan {}
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -72,5 +92,9 @@ mod tests {
         let sedan_factory = SedanFactory{};
         let sedan = sedan_factory.make_car();
         assert_eq!(sedan.get_type(), "Sedan");
+
+        let better_sedan_factory = BetterSedanFactory {};
+        let better_sedan = better_sedan_factory.make_car();
+        assert_eq!(better_sedan.get_type(), "Sedan");
     }
 }
