@@ -10,6 +10,7 @@ pub mod singleton;
 pub mod composite;
 pub mod decorator;
 pub mod builder;
+pub mod proxy;
 
 fn main() {
 }
