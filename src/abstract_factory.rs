@@ -128,6 +128,48 @@ impl Factory for OSX {
 }
 
 
+/// Note that this can also be implemented with advanced traits using types. In general this is much cleaner, but
+/// exposes the real type of the object to the client. This might however, not be a problem in some scenarios. In terms
+/// of performance, this is prefered, as no dynamic lookup is required on method calls on the objects created by the
+/// abstract factory.
+trait Factory2 {
+    type ButtonType;
+    type WindowType;
+
+    fn create_button(&self) -> Self::ButtonType;
+    fn create_window(&self) -> Self::WindowType;
+}
+
+struct DebianButton;
+struct DebianWindow;
+
+impl Button for DebianButton {
+    fn paint(&self) -> &str {
+        "DebianButton"
+    }
+}
+
+impl Window for DebianWindow {
+    fn size(&self) -> (u32, u32) {
+        (1600, 1600)
+    }
+}
+
+
+struct Debian;
+
+impl Factory2 for Debian {
+    type ButtonType = DebianButton;
+    type WindowType = DebianWindow;
+
+    fn create_button(&self) -> DebianButton {
+        DebianButton {}
+    }
+
+    fn create_window(&self) -> DebianWindow {
+        DebianWindow {}
+    }
+}
 
 
 #[cfg(test)]
@@ -149,5 +191,13 @@ mod tests {
 
         assert_eq!(linux_button.paint(), "LinuxButton");
         assert_eq!(linux_window.size(), (400_u32, 400_u32));
+
+
+        let debian_factory = Debian {};
+        let debian_button = debian_factory.create_button();
+        let debian_window = debian_factory.create_window();
+
+        assert_eq!(debian_button.paint(), "DebianButton");
+        assert_eq!(debian_window.size(), (1600_u32, 1600_u32));
     }
 }
