@@ -11,6 +11,7 @@ pub mod composite;
 pub mod decorator;
 pub mod builder;
 pub mod proxy;
+pub mod command;
 
 fn main() {
 }
