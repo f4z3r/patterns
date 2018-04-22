@@ -9,6 +9,7 @@ pub mod prototype;
 pub mod singleton;
 pub mod composite;
 pub mod decorator;
+pub mod builder;
 
 fn main() {
 }
