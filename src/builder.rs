@@ -22,6 +22,25 @@
 //!
 //! Note that a builder usually builds a composite object. Hence these patterns are usually used together.
 //!
+//! # Attention
+//! Note that in this code, the object returned by the builder is in fact cloned. This is to avoid a move out of
+//! borrowed content that the borrow checker would catch. However, when building large complex objects, this is very
+//! inefficient as the large object is cloned. In order to improve the efficiency of this, one has three alternatives:
+//! 1. Return a reference to the object. However, note that this makes changing the object not possible. Hence one would
+//!    require to drop the reference and rebuild another when a change is in order. This is not a problem in terms of
+//!    performance, but it can become a hassle if the object needs to be changed often.
+//! 2. When designing the builder, ensure that the builder never only owns the car for the duration of the construction,
+//!    and then return the ownership of the built car to the caller. An issue with this is that it makes designing a
+//!    general builder extremely complex for generic obejcts.
+//! 3. Make all mutable fields in `Car` part of `Cell`s, allowing to mutate the object and return a immutable reference,
+//!    avoiding a clone. This allows the builder to continuously modify the car without requiring drops of the external
+//!    reference and renewed calls to `build()`. However, this is not thread-safe (In which case a lock on `Car` could
+//!    be implemented).
+//!
+//! The current way this is implemented is the one that makes most sence in term of the semantics of a builder. On the
+//! other hand, note that it would indeed be very inefficient if the underlying product being built is very large and
+//! complex.
+//!
 //! # Known Uses
 //! - Text converters
 
