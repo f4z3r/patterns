@@ -13,6 +13,7 @@ pub mod builder;
 pub mod proxy;
 pub mod command;
 pub mod observer;
+pub mod state;
 
 fn main() {
 }
