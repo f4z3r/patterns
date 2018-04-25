@@ -33,6 +33,9 @@
 //! - "tools" in drawing programs
 //! - JDRAW: Handles, SnapToGrid
 //! - ticket machines
+//!
+//! # Note
+//! The following code is taken from the official Rust book.
 
 
 /// The state interface
