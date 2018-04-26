@@ -14,6 +14,7 @@ pub mod proxy;
 pub mod command;
 pub mod observer;
 pub mod state;
+pub mod strategy;
 
 fn main() {
 }
