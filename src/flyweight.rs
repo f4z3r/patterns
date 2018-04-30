@@ -81,7 +81,7 @@ impl Menu {
                 ch.reduce_quantity(quantity)?;
                 Ok(ch.cost)
             },
-            None            => Err(OutOfStockError),
+            None        => Err(OutOfStockError),
         }
     }
 }
