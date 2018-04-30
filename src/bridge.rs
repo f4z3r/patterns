@@ -34,7 +34,7 @@
 //! Implementor can also be shared across objects. This might be more challenging to implement in Rust than in other
 //! more flexible languages such as C++ but it allows to construct less implementor objects.
 //!
-//! Known Uses:
+//! # Known Uses:
 //! - `libg++` uses this pattern for some of its common data structures.
 
 
