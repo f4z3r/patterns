@@ -20,6 +20,7 @@ pub mod adapter;
 pub mod bridge;
 pub mod facade;
 pub mod flyweight;
+pub mod chain_of_responsibility;
 
 fn main() {
 }
