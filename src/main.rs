@@ -22,6 +22,7 @@ pub mod facade;
 pub mod flyweight;
 pub mod chain_of_responsibility;
 pub mod iterator;
+pub mod mediator;
 
 fn main() {
 }
