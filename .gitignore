@@ -1,5 +1,5 @@
 
-/target
+rust/target
 **/*.rs.bk
 
 # OS X
