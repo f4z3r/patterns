@@ -21,4 +21,10 @@ describe Patterns do
       button.paint.should eq("osx button")
     end
   end
+
+  it "decorator works" do
+    coffee = Patterns::WithChocolate.new(Patterns::WithMilk.new(Patterns::SimpleCoffee.new))
+    coffee.cost.should eq(1.8)
+    coffee.ingredients.should eq("coffee, milk, chocolate")
+  end
 end
