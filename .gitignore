@@ -4,3 +4,14 @@ rust/target
 
 # OS X
 .DS_Store
+
+
+/crystal/docs/
+/crystal/lib/
+/crystal/bin/
+/crystal/.shards/
+*.dwarf
+
+# Libraries don't need dependency lock
+# Dependencies will be locked in application that uses them
+/crystal/shard.lock

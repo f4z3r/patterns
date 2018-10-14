@@ -1,0 +1,9 @@
+name: patterns
+version: 0.1.0
+
+authors:
+  - Jakob Beckmann <beckmann_jakob@hotmail.fr>
+
+crystal: 0.25.1
+
+license: MIT
