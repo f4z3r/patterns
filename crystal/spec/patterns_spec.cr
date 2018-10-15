@@ -27,4 +27,14 @@ describe Patterns do
     coffee.cost.should eq(1.8)
     coffee.ingredients.should eq("coffee, milk, chocolate")
   end
+
+  it "builder works" do
+    builder = Patterns::CarBuilder.new
+    builder.set_seat_count(7_u8)
+    builder.set_door_count(4_u8)
+    builder.set_model("sedan")
+    builder.set_colour("red")
+    car = builder.construct
+    car.description.should eq("red sedan car with 7 seats and 4 doors.")
+  end
 end
