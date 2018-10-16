@@ -37,4 +37,19 @@ describe Patterns do
     car = builder.construct
     car.description.should eq("red sedan car with 7 seats and 4 doors.")
   end
+
+  it "state works" do
+    post = Patterns::Post.new
+    post.add_text("This is my amazing post.")
+    post.get_content.should eq("")
+    post.request_review
+    post.get_content.should eq("")
+    post.approve
+    post.get_content.should eq("This is my amazing post.")
+    post.add_text(" And I made some changed to make it even more awesome.")
+    post.get_content.should eq("")
+    post.request_review
+    post.approve
+    post.get_content.should eq("This is my amazing post. And I made some changed to make it even more awesome.")
+  end
 end
