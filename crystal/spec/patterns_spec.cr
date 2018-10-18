@@ -62,4 +62,9 @@ describe Patterns do
       client.switch_for("else")
     end
   end
+
+  it "strategy works" do
+    obj = Patterns::SomeObject.new(Patterns::FastAlgorithm.new)
+    obj.print.should eq "running a very fast algorithm"
+  end
 end
