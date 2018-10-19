@@ -67,4 +67,11 @@ describe Patterns do
     obj = Patterns::SomeObject.new(Patterns::FastAlgorithm.new)
     obj.print.should eq "running a very fast algorithm"
   end
+
+  it "adapter works" do
+    iphone = Patterns::IPhone.new
+    # cannot call iphone.recharge
+    adapter = Patterns::USBCharger.new(iphone)
+    adapter.recharge.should eq "adding adapter and charging iPhone"
+  end
 end
