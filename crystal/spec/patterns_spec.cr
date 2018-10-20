@@ -74,4 +74,9 @@ describe Patterns do
     adapter = Patterns::USBCharger.new(iphone)
     adapter.recharge.should eq "adding adapter and charging iPhone"
   end
+
+  it "template method works" do
+    obj = Patterns::DoSomethingSpecific.new
+    obj.do_something.should eq "starting do specific thing 1; doing thing 2 and do generic thing 3"
+  end
 end
