@@ -1,6 +1,6 @@
 # State design pattern
 
-module Patterns
+module Patterns::State
   # abstract state class
   abstract class State
     abstract def request_review : State

@@ -1,6 +1,6 @@
 # Factory method pattern.
 
-module Patterns
+module Patterns::FactoryMethod
   # Base class instantiated by the factory method
   class Room
     def print

@@ -1,6 +1,6 @@
 # Template method design pattern
 
-module Patterns
+module Patterns::TemplateMethod
   # the abstract class defining the template (`do_something`) that is customisable via overriding the abstract methods
   abstract class DoSomething
     def do_something : String

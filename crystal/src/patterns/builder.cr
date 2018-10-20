@@ -1,6 +1,6 @@
 # Builder design pattern
 
-module Patterns
+module Patterns::Builder
   class Car
     property model : String
     property colour : String

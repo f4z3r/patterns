@@ -1,6 +1,6 @@
 # Abstract factory pattern
 
-module Patterns
+module Patterns::AbstractFactory
   # Abstract entity to be created by the factory.
   abstract class Button
     abstract def paint: String

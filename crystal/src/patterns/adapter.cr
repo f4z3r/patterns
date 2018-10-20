@@ -1,6 +1,6 @@
 # Adapter design pattern
 
-module Patterns
+module Patterns::Adapter
   # target interface the client uses
   module TargetInterface
     abstract def recharge

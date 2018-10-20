@@ -1,6 +1,6 @@
 # Strategy design pattern
 
-module Patterns
+module Patterns::Strategy
   # algorithm interface
   module Algorithm
     abstract def run : String

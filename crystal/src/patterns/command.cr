@@ -1,6 +1,6 @@
 # command design pattern
 
-module Patterns
+module Patterns::Command
   # the command executor which stores a command history
   class Switch
     getter history : Array(String)

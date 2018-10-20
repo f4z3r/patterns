@@ -1,6 +1,6 @@
 # Decorator pattern
 
-module Patterns
+module Patterns::Decorator
   abstract class Coffee
     abstract def cost
     abstract def ingredients
