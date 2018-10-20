@@ -1,0 +1,21 @@
+dist: trusty
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - language: crystal
+      crystal: latest
+      before_script:
+        - cd crystal
+    - language: ruby
+      ruby: "2.5"
+      before_script:
+        - cd ruby
+      script:
+        - ruby tests.rb
+    - language: rust
+      rust: stable
+      before_script:
+        - cd rust
