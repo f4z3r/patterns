@@ -26,5 +26,6 @@ matrix:
       before_install:
         - docker pull nimlang/nim
       script:
+        - cd nim
         - docker run nimlang/nim nim --version
         - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c "nimble install -dy && nimble test"
