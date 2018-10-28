@@ -80,4 +80,9 @@ describe Patterns do
     obj = Patterns::TemplateMethod::DoSomethingSpecific.new
     obj.do_something.should eq "starting do specific thing 1; doing thing 2 and do generic thing 3"
   end
+
+  it "facade pattern works" do
+    compiler = Patterns::Facade::Compiler.new
+    compiler.run.should eq "parsing source code\ngenerating machine code\noptimising generated machine code\nlinking code\n"
+  end
 end
