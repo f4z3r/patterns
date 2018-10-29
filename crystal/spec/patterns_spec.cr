@@ -85,4 +85,26 @@ describe Patterns do
     compiler = Patterns::Facade::Compiler.new
     compiler.run.should eq "parsing source code\ngenerating machine code\noptimising generated machine code\nlinking code\n"
   end
+
+  it "flyweight pattern works" do
+    menu = Patterns::Flyweight::Menu.new
+    shop1 = Patterns::Flyweight::CheeseShop.new(menu)
+    shop2 = Patterns::Flyweight::CheeseShop.new(menu)
+
+    # add items to the menu
+    shop1.stock_cheese("blue", 2.5, 10.0)
+    shop2.stock_cheese("white", 1.25, 20.0)
+
+    shop1.sell("white", 10.0)
+    shop1.revenue.should eq (10*1.25)
+
+    shop2.sell("blue", 10.0)
+    shop1.sell("blue", 5.0)   # out of stock
+    shop2.revenue.should eq (10*2.5)
+    shop1.units_sold.should eq (10+0)
+
+    shop2.sell("white", 10.0)
+    shop2.revenue.should eq (10*2.5 + 10*1.25)
+    shop2.units_sold.should eq (10+10)
+  end
 end
